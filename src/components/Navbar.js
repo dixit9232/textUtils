@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand text-light" href="/">
           {props.title}
         </a>
         <button
@@ -22,12 +22,16 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a
+                className="nav-link active text-light"
+                aria-current="page"
+                href="/"
+              >
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link text-light" href="/">
                 About
               </a>
             </li>
@@ -39,7 +43,7 @@ export default function Navbar(props) {
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
+            <button className="btn btn-outline-primary" type="submit">
               Search
             </button>
           </form>
@@ -52,4 +56,3 @@ export default function Navbar(props) {
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
 };
-
