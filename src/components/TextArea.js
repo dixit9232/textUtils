@@ -8,7 +8,11 @@ export default function TextArea(props) {
   const handelUpperCase = () => {
     setText(text.toUpperCase());
   };
-  const [text, setText] = useState("Enter Text Here");
+
+  const handelLowerCase = () => {
+    setText(text.toLowerCase());
+  };
+  const [text, setText] = useState("");
 
   return (
     <div>
@@ -25,6 +29,20 @@ export default function TextArea(props) {
         <button className="btn btn-primary my-3" onClick={handelUpperCase}>
           Conver To Uppercase
         </button>
+        <button className="btn btn-primary mx-3 my-3" onClick={handelLowerCase}>
+          Convert To Lowercase
+        </button>
+      </div>
+      <div className="container my-3">
+        <h2>Text Summary</h2>
+        <p>
+          {text.split(" ").filter((word) => word !== "").length} words and{" "}
+          {text.length} characters
+        </p>
+      </div>
+      <div className="container">
+        <h2>Preview Text</h2>
+        <p>{text}</p>
       </div>
     </div>
   );
@@ -33,4 +51,3 @@ export default function TextArea(props) {
 TextArea.propTypes = {
   heading: PropTypes.string.isRequired,
 };
-  
