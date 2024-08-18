@@ -1,11 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ColorPalette from "./ColorPalette";
 
 export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg  bg-${props.mode}`}>
       <div className="container-fluid">
-        <a className={`navbar-brand text-${props.mode === 'light' ? 'dark' : 'light'}`} href="/">
+        <a
+          className={`navbar-brand text-${
+            props.mode === "light" ? "dark" : "light"
+          }`}
+          href="/"
+        >
           {props.title}
         </a>
         <button
@@ -23,7 +29,9 @@ export default function Navbar(props) {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a
-                className={`nav-link active text-${props.mode === 'light' ? 'dark' : 'light'}`}
+                className={`nav-link active text-${
+                  props.mode === "light" ? "dark" : "light"
+                }`}
                 aria-current="page"
                 href="/"
               >
@@ -31,21 +39,48 @@ export default function Navbar(props) {
               </a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link text-${props.mode === 'light' ? 'dark' : 'light'}`} href="/">
+              <a
+                className={`nav-link text-${
+                  props.mode === "light" ? "dark" : "light"
+                }`}
+                href="/"
+              >
                 About
               </a>
             </li>
           </ul>
-          <div className="redContainer mx-3" onClick={console.log("Red!")} style={{
-            backgroundColor: 'red',
-            width: '20px',
-            height: '20px',
-            borderRadius: '50%',
-            display: 'inline-block'
-          }}></div>
+          <ColorPalette
+            color="#ff0000"
+            onClick={props.handleColorChange}
+          />
+          <ColorPalette
+            color="#3399ff"
+            onClick={props.handleColorChange}
+          />
+          <ColorPalette
+            color="#ffff00"
+            onClick={props.handleColorChange}
+          />
+          <ColorPalette
+            color="#66ff33"
+            onClick={props.handleColorChange}
+          />
           <div className="form-check form-switch">
-            <input className="form-check-input" type="checkbox" role="switch" onClick={props.toggleMode} id="flexSwitchCheckDefault" />
-            <label className={`form-check-label text-${props.mode === 'light' ? 'dark' : 'light'}`} htmlFor="flexSwitchCheckDefault">Change mode</label>
+            <input
+              className="form-check-input"
+              type="checkbox"
+              role="switch"
+              onClick={props.toggleMode}
+              id="flexSwitchCheckDefault"
+            />
+            <label
+              className={`form-check-label text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
+              htmlFor="flexSwitchCheckDefault"
+            >
+              Change mode
+            </label>
           </div>
           {/* <form className="d-flex" role="search">
             <input
@@ -66,5 +101,6 @@ export default function Navbar(props) {
 
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  togalMode: PropTypes.func.isRequired
+  toggleMode: PropTypes.func.isRequired,
+  handleColorChange:PropTypes.func.isRequired
 };
