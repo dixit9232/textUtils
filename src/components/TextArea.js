@@ -7,14 +7,17 @@ export default function TextArea(props) {
   };
   const handelUpperCase = () => {
     setText(text.toUpperCase());
+    props.showAlert("Text coneverted to uppercase!", "success");
   };
 
   const handelLowerCase = () => {
     setText(text.toLowerCase());
+    props.showAlert("Text coneverted to lowercase!", "success");
   };
 
   const handelClearText = () => {
     setText("");
+    props.showAlert("Text is cleared!", "success");
   };
 
   const handelCopyText = () => {
@@ -22,7 +25,7 @@ export default function TextArea(props) {
     newText.select();
 
     navigator.clipboard.writeText(text);
-    alert("Text is Copied");
+    props.showAlert("Text is copied to clipboard!", "success");
   };
 
   const [text, setText] = useState("");
